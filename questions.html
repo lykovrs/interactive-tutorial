@@ -1,0 +1,58 @@
+<!-- questions -->
+<h3>Ход выполнения</h3>
+    <uib-progressbar class="progress-striped active"
+                     max="$ctrl.result.all" value="$ctrl.result.selected + 1"
+                     type="danger">
+        <i>
+            {{$ctrl.result.selected + 1}} / {{$ctrl.result.all}}
+        </i>
+    </uib-progressbar>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>{{$ctrl.selectedQuestion.text}}</h3>
+    </div>
+    <div class="panel-body">
+        <div ng-repeat="answer in $ctrl.selectedQuestion.answers">
+
+            <div class="checkbox" ng-if="$ctrl.selectedQuestion.type == 'checkbox'">
+                <label>
+                    <input type="checkbox"
+                           ng-model="answer.model">
+                    {{answer.text}}
+                </label>
+            </div>
+
+            <div class="radio" ng-if="$ctrl.selectedQuestion.type == 'radio'">
+                <label>
+                    <input type="radio"
+                           ng-model="$ctrl.selectedQuestion.model"
+                           value="{{answer}}">
+                    {{answer}}
+                </label>
+            </div>
+        </div>
+
+    </div>
+    <div class="panel-footer">
+        <p>
+            <button
+                    type="button"
+                    ng-disabled="$ctrl.result.selected <= 0"
+                    ng-click="$ctrl.getPrewQusestion()"
+                    class="btn btn-default btn-lg">Предыдущий вопрос</button>
+            <button type="button"
+                    ng-disabled="$ctrl.result.selected == $ctrl.result.all - 1"
+                    ng-click="$ctrl.getNextQusestion()"
+                    class="btn btn-primary btn-lg">Следующий вопрос</button>
+
+            <button type="button"
+                    ng-if="$ctrl.result.selected == $ctrl.result.all - 1"
+                    ng-click="$ctrl.endTest()"
+                    ui-sref="result"
+                    class="btn btn-primary btn-lg">Получить оценку</button>
+        </p>
+    </div>
+</div>
+<!-- ...questions -->

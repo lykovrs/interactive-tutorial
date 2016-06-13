@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Изучение технологии</title>
+
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src='js/angular.min.js'></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/ui-bootstrap.min.js"></script>
+    <script src="js/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="https://cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="routerApp">
+<!-- MAIN CONTENT -->
+<div class="container">
+<!-- NAVIGATION -->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">Интерактивный учебник</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li ui-sref-active="active"><a ui-sref="home">Учебник</a></li>
+        <li ui-sref-active="active"><a ui-sref="test">Тест</a></li>
+    </ul>
+</nav>
+
+    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+    <div ui-view></div>
+
+</div>
+
+</body>
+</html>
