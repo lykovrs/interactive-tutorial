@@ -1,0 +1,64 @@
+{
+  "header": "Введение",
+  "body": [
+    {
+      "text": "Данный крус представляет собой..."
+    },
+    {
+      "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+      "width": 200,
+      "height": 200
+    },
+    {
+      "text": "Еще рыбный текст..."
+    }
+  ],
+  "nextLesson": {
+    "header": "Заголовок урока 1",
+    "body": [
+      {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
+      },
+      {
+        "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
+      },
+      {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
+      },
+      {
+        "img": "http://chemistry-chemists.com/img/chemistry-5.jpg",
+        "width": 200,
+        "height": 200
+      }
+    ],
+    "nextLesson": {
+      "header": "Заголовок урока 2",
+      "body": [
+        {
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
+        },
+        {
+          "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
+        },
+        {
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
+        },
+        {
+          "img": "http://chemistry-chemists.com/img/chemistry-5.jpg",
+          "width": 200,
+          "height": 200
+        }
+      ]
+    }
+  }
+}

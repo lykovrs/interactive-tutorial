@@ -15,12 +15,17 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
     // HOME STATES AND VIEWS ========================================
         .state('home', {
             url: '/home',
-            templateUrl: 'learn-home.html'
+            templateUrl: 'home.html'
         })
 
-        .state('home.list', {
-            url: '/list',
-            templateUrl: '/leran-home-list.html',
+        .state('teach', {
+            url: '/teach',
+            template: '<teach></teach>'
+        })
+
+        .state('teach.lesson-1', {
+            url: '/lesson-1',
+            templateUrl: '/lesson-1.html',
             controller: function ($scope) {
                 $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
             }
@@ -40,6 +45,7 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
 
 });
 
+// Сервис для обработки данных тестирования
 routerApp.service('questionsService', function ($http) {
 
     this.getQuestions = () => {
@@ -177,5 +183,30 @@ routerApp.component('result', {
                 }
             ]
         };
+    }
+});
+
+
+// Сервис процесса обучения
+routerApp.service('lessonsService', function ($http) {
+
+    this.getLessons = () => {
+        return $http.get('data/pages.json').then(response => {
+            this.lessons = response.data;
+            console.log("get lessons data");
+            return response.data;
+        });
+    };
+});
+
+// Компонент страницы обчения
+routerApp.component('teach', {
+    templateUrl: 'teach.html',
+    controller: function (lessonsService) {
+
+        lessonsService.getLessons().then(lessons => {
+            this.lessons = lessonsService.lessons;
+        });
+
     }
 });
