@@ -1,23 +1,11 @@
-{
-  "header": "Введение",
-  "body": [
-    {
-      "text": "Данный крус представляет собой..."
-    },
-    {
-      "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
-      "width": 200,
-      "height": 200
-    },
-    {
-      "text": "Еще рыбный текст..."
-    }
-  ],
-  "nextLesson": {
-    "header": "Заголовок урока 1",
+[
+  {
+    "title": "Введение",
+    "annotation": "Аннотация",
+    "url": "annotation",
     "body": [
       {
-        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
+        "p": "Данный крус представляет собой..."
       },
       {
         "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
@@ -25,40 +13,120 @@
         "height": 200
       },
       {
-        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
-      },
-      {
-        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
-      },
-      {
-        "img": "http://chemistry-chemists.com/img/chemistry-5.jpg",
-        "width": 200,
-        "height": 200
+        "p": "Еще рыбный текст..."
       }
     ],
-    "nextLesson": {
-      "header": "Заголовок урока 2",
-      "body": [
-        {
-          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
-        },
-        {
-          "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
-          "width": 200,
-          "height": 200
-        },
-        {
-          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
-        },
-        {
-          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur ducimus eius, excepturi inventore iste molestiae natus nulla quia quibusdam? Accusamus adipisci deserunt illo molestias quos reprehenderit tempore unde vel!"
-        },
-        {
-          "img": "http://chemistry-chemists.com/img/chemistry-5.jpg",
-          "width": 200,
-          "height": 200
-        }
-      ]
-    }
+    "lessons": [
+      {
+        "title": "Урок 1 первой главы",
+        "annotation": "Аннотация к уроку 1 в первой главе",
+        "url": "stage-1",
+        "body": [
+          {
+            "p": "Данный урок представляет собой..."
+          },
+          {
+            "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+            "width": 200,
+            "height": 200
+          },
+          {
+            "p": "Еще рыбный текст..."
+          }
+        ]
+      },
+      {
+        "title": "Урок 2 первой главы",
+        "annotation": "Аннотация к уроку 1 в первой главе",
+        "url": "stage-2",
+        "body": [
+          {
+            "p": "Данный урок представляет собой..."
+          },
+          {
+            "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+            "width": 200,
+            "height": 200
+          },
+          {
+            "p": "Еще рыбный текст..."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Глава 1",
+    "annotation": "Аннотация к первой главе",
+    "url": "first-chapter",
+    "body": [
+      {
+        "p": "Данный крус представляет собой..."
+      },
+      {
+        "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "p": "Еще рыбный текст..."
+      }
+    ],
+    "lessons": [
+      {
+        "title": "Урок 1 первой главы",
+        "annotation": "Аннотация к уроку 1 в первой главе",
+        "url": "first-chapter-lesson-1",
+        "body": [
+          {
+            "p": "Данный урок представляет собой..."
+          },
+          {
+            "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+            "width": 200,
+            "height": 200
+          },
+          {
+            "p": "Еще рыбный текст..."
+          }
+        ]
+      },
+      {
+        "title": "Урок 2 первой главы",
+        "annotation": "Аннотация к уроку 1 в первой главе",
+        "url": "first-chapter-lesson-2",
+        "body": [
+          {
+            "p": "Данный урок представляет собой..."
+          },
+          {
+            "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+            "width": 200,
+            "height": 200
+          },
+          {
+            "p": "Еще рыбный текст..."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Глава 2",
+    "annotation": "Аннотация ко второй главе",
+    "url": "second-chapter",
+    "body": [
+      {
+        "p": "Данный глава представляет собой..."
+      },
+      {
+        "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "p": "Еще рыбный текст..."
+      }
+    ]
   }
-}
+]
