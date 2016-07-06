@@ -1,70 +1,46 @@
-// let angular = require ('../bower_components/angular/angular.min');
-// var uirouter = require ('../bower_components/angular-ui-router/release/angular-ui-router.min.js');
-// var uibootsrap = require ('../bower_components/angular-bootstrap/ui-bootstrap.min.js');
-// var uibootsraptpls = require ('../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js');
-
-
-var routerApp = angular.module('routerApp', ['ui.router', 'ui.bootstrap', 'zingchart-angularjs']);
-
-routerApp.config(function ($stateProvider, $urlRouterProvider) {
-
+var tutorialApp = angular.module('tutorialApp', ['ui.router', 'ui.bootstrap', 'zingchart-angularjs']);
+tutorialApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
-
     $stateProvider
-
-    // HOME STATES AND VIEWS ========================================
         .state('home', {
-            url: '/home',
-            templateUrl: 'home.html'
-        })
-
+        url: '/home',
+        templateUrl: 'home.html'
+    })
         .state('teach', {
-            url: '/teach',
-            template: '<teach></teach>'
-        })
-
+        url: '/teach',
+        template: '<teach></teach>'
+    })
         .state('teach.lesson-1', {
-            url: '/lesson-1',
-            templateUrl: '/lesson-1.html',
-            controller: function ($scope) {
-                $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
-            }
-        })
-
+        url: '/lesson-1',
+        templateUrl: '/lesson-1.html',
+        controller: function ($scope) {
+            $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
+        }
+    })
         .state('test', {
-            url: '/test',
-            template: '<questions></questions>'
-
-        })
-
+        url: '/test',
+        template: '<questions></questions>'
+    })
         .state('result', {
-            url: '/result',
-            template: '<result></result>'
-
-        });
-
+        url: '/result',
+        template: '<result></result>'
+    });
 });
-
 // Сервис для обработки данных тестирования
-routerApp.service('questionsService', function ($http) {
-
-    this.getQuestions = () => {
-        return $http.get('data/test.json').then(response => {
-            this.questions = response.data;
+tutorialApp.service('questionsService', function ($http) {
+    var _this = this;
+    this.getQuestions = function () {
+        return $http.get('data/test.json').then(function (response) {
+            _this.questions = response.data;
             console.log("get questions data");
-
-            this.result.all = this.questions.length;
-
-            this.selectedQuestion = this.questions[0];
+            _this.result.all = _this.questions.length;
+            _this.selectedQuestion = _this.questions[0];
             console.log("get selection item");
-
             return response.data;
         });
     };
-
     // Массив с объектами опросника
     this.questions = [];
-
     // Объект с результатами тестирования
     this.result = {
         all: 0,
@@ -72,91 +48,200 @@ routerApp.service('questionsService', function ($http) {
         rightAswers: 0,
         notRightAswers: 0
     };
-
     // Текущий вопрос
     this.selectedQuestion = {};
-
     // Проверка текущего вопроса
-    this.calcResult = (question) => {
+    this.calcResult = function (question) {
         if (question.type == "checkbox") {
-            for (let answer of question.answers) {
+            for (var _i = 0, _a = question.answers; _i < _a.length; _i++) {
+                var answer = _a[_i];
                 if (answer.type !== answer.model) {
-                    this.result.notRightAswers++;
+                    _this.result.notRightAswers++;
                     return;
                 }
             }
-
-            this.result.rightAswers++;
+            _this.result.rightAswers++;
         }
-
         if (question.type == 'radio') {
             if (question.model == question.rightAnswer) {
-                this.result.rightAswers++;
-            } else {
-                this.result.notRightAswers++;
+                _this.result.rightAswers++;
+            }
+            else {
+                _this.result.notRightAswers++;
             }
         }
-
-
     };
-
     // Переход к сделующему заданию
-    this.getNextQusestion = () => {
-        this.calcResult(this.selectedQuestion);
-        this.result.selected++;
-        this.selectedQuestion = this.questions[this.result.selected];
-
+    this.getNextQusestion = function () {
+        _this.calcResult(_this.selectedQuestion);
+        _this.result.selected++;
+        _this.selectedQuestion = _this.questions[_this.result.selected];
     };
-
     // Переход к предыдущему заданию
-    this.getPrewQusestion = () => {
-        this.calcResult(this.selectedQuestion);
-        this.result.selected--;
-        this.selectedQuestion = this.questions[this.result.selected];
-
+    this.getPrewQusestion = function () {
+        _this.calcResult(_this.selectedQuestion);
+        _this.result.selected--;
+        _this.selectedQuestion = _this.questions[_this.result.selected];
     };
-
-    this.getResult = () => {
-        return this.result;
-    }
+    this.getResult = function () {
+        return _this.result;
+    };
 });
-
-routerApp.component('questions', {
+// component'questions'
+// tutorialApp.component('result', {
+// Сервис процесса обучения
+tutorialApp.service('lessonsService', function ($http) {
+    var _this = this;
+    this.getLessons = function () {
+        return $http.get('data/pages.json').then(function (response) {
+            _this.lessons = response.data;
+            console.log("get lessons data");
+            getTree();
+            return response.data;
+        });
+    };
+    // Рекурсивно обходим последовательность страниц, формируем массив
+    function getTree() {
+        var tree = {};
+        console.log('tree');
+        return tree;
+    }
+    ;
+    this.getTree = function (arr) {
+    };
+    // Формируем данные для навигации
+    // Формируем данные для компиляции страниц и урлов
+});
+// Компонент страницы обчения
+// tutorialApp.component('teach', {
+/// <reference path="../../libs/tsd.d.ts" />
+/**
+ * @module Core
+ */
+var Core;
+(function (Core) {
+    /**
+     * @module UI
+     */
+    var UI;
+    (function (UI) {
+        /**
+         * Чекбокс
+         * @class Checkbox
+         */
+        var Checkbox = (function () {
+            function Checkbox(model, label, name, disabled, onChange, indeterminate) {
+                this.model = model;
+                this.label = label;
+                this.name = name;
+                this.disabled = disabled;
+                this.onChange = onChange;
+                this.indeterminate = indeterminate;
+            }
+            return Checkbox;
+        }());
+        UI.Checkbox = Checkbox;
+    })(UI = Core.UI || (Core.UI = {}));
+})(Core || (Core = {}));
+/// <reference path="../../libs/tsd.d.ts" />
+/// <reference path="../../utils/IAppRootScope.ts" />
+/// <reference path="../../app/AppConstant.ts" />
+/// <reference path="Checkbox.ts" />
+/**
+ * @module Core
+ */
+var Core;
+(function (Core) {
+    /**
+     * @module UI
+     */
+    var UI;
+    (function (UI) {
+        /**
+         * Директива для кастомизации чекбокса
+         * @class Checkbox
+         * @directive checkbox
+         */
+        function CheckboxDirective(ConfigStorageService) {
+            return {
+                restrict: 'EA',
+                replace: 'true',
+                templateUrl: ConfigStorageService.getConfig().getContentURL() + '/checkbox/checkbox.html',
+                require: '^ngModel',
+                scope: {
+                    model: '=ngModel',
+                    label: '=',
+                    name: '@',
+                    onChange: '=?ngChange',
+                    disabled: '=?ngDisabled',
+                    indeterminate: '='
+                },
+                link: function (scope, element, attrs, ngCtrl) {
+                    if (attrs.indeterminate) {
+                        element.find('input').prop('indeterminate', function () {
+                            var indeterminate = scope.indeterminate;
+                            return indeterminate && indeterminate.displayed > 0 && indeterminate.displayed < indeterminate.total;
+                        });
+                    }
+                }
+            };
+        }
+        UI.CheckboxDirective = CheckboxDirective;
+    })(UI = Core.UI || (Core.UI = {}));
+})(Core || (Core = {}));
+angular.module(Core.App.AppConstant.ANGULAR_MODULE_NAME).directive('checkbox', ['ConfigStorageService', Core.UI.CheckboxDirective]);
+/**
+ * @module Core
+ */
+var Core;
+(function (Core) {
+    /**
+     * @module UI
+     */
+    var UI;
+    (function (UI) {
+        /**
+         * Компонент страницы вопросов
+         * @class Questions
+         * @component questions
+         */
+        var QuestionsComponent = (function () {
+            function QuestionsComponent() {
+            }
+            return QuestionsComponent;
+        }());
+        UI.QuestionsComponent = QuestionsComponent;
+    })(UI = Core.UI || (Core.UI = {}));
+})(Core || (Core = {}));
+tutorialApp.component('questions', {
     templateUrl: 'questions.html',
     controller: function (questionsService) {
-
-        questionsService.getQuestions().then(questions => {
-            this.selectedQuestion = questionsService.selectedQuestion;
-            this.result = questionsService.result;
+        var _this = this;
+        questionsService.getQuestions().then(function (questions) {
+            _this.selectedQuestion = questionsService.selectedQuestion;
+            _this.result = questionsService.result;
         });
-
-
-        this.getNextQusestion = () => {
+        this.getNextQusestion = function () {
             questionsService.getNextQusestion();
-            this.selectedQuestion = questionsService.selectedQuestion;
-            this.result = questionsService.result;
+            _this.selectedQuestion = questionsService.selectedQuestion;
+            _this.result = questionsService.result;
         };
-
-        this.getPrewQusestion = () => {
+        this.getPrewQusestion = function () {
             questionsService.getPrewQusestion();
-            this.selectedQuestion = questionsService.selectedQuestion;
-            this.result = questionsService.result;
+            _this.selectedQuestion = questionsService.selectedQuestion;
+            _this.result = questionsService.result;
         };
-
-        this.endTest = () => {
-            this.getNextQusestion();
+        this.endTest = function () {
+            _this.getNextQusestion();
             // this.result = questionsService.result;
             console.log('end');
-        }
+        };
     }
 });
-
-
-routerApp.component('result', {
+tutorialApp.component('result', {
     templateUrl: 'result.html',
     controller: function (questionsService) {
         this.result = questionsService.getResult();
-
         this.myJson = {
             type: 'pie',
             tooltip: {
@@ -172,7 +257,6 @@ routerApp.component('result', {
                 }
             },
             series: [
-
                 {
                     text: 'Верные ответы',
                     values: [this.result.rightAswers]
@@ -185,28 +269,14 @@ routerApp.component('result', {
         };
     }
 });
-
-
-// Сервис процесса обучения
-routerApp.service('lessonsService', function ($http) {
-
-    this.getLessons = () => {
-        return $http.get('data/pages.json').then(response => {
-            this.lessons = response.data;
-            console.log("get lessons data");
-            return response.data;
-        });
-    };
-});
-
 // Компонент страницы обчения
-routerApp.component('teach', {
+tutorialApp.component('teach', {
     templateUrl: 'teach.html',
     controller: function (lessonsService) {
-
-        lessonsService.getLessons().then(lessons => {
-            this.lessons = lessonsService.lessons;
+        var _this = this;
+        lessonsService.getLessons().then(function (lessons) {
+            _this.lessons = lessonsService.lessons;
         });
-
     }
 });
+//# sourceMappingURL=app.js.map
