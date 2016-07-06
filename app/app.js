@@ -4,8 +4,10 @@
 var labApp = angular.module('labApp', [
   'ui.router',
   'ui.bootstrap',
-  'labApp.viewHome'
-    
+  'serviceLessons',
+  'viewHome',
+  'viewTeach'
+
 ]);
 
 labApp.config(function ($urlRouterProvider) {

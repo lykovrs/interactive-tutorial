@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('labApp.viewHome', ['ui.router'])
+angular.module('viewHome', ['ui.router']);
 
 labApp.config(function ($stateProvider) {
   $stateProvider.state('home', {

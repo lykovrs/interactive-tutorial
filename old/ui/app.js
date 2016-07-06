@@ -89,29 +89,6 @@ tutorialApp.service('questionsService', function ($http) {
 });
 // component'questions'
 // tutorialApp.component('result', {
-// Сервис процесса обучения
-tutorialApp.service('lessonsService', function ($http) {
-    var _this = this;
-    this.getLessons = function () {
-        return $http.get('data/pages.json').then(function (response) {
-            _this.lessons = response.data;
-            console.log("get lessons data");
-            getTree();
-            return response.data;
-        });
-    };
-    // Рекурсивно обходим последовательность страниц, формируем массив
-    function getTree() {
-        var tree = {};
-        console.log('tree');
-        return tree;
-    }
-    ;
-    this.getTree = function (arr) {
-    };
-    // Формируем данные для навигации
-    // Формируем данные для компиляции страниц и урлов
-});
 // Компонент страницы обчения
 // tutorialApp.component('teach', {
 /// <reference path="../../libs/tsd.d.ts" />
