@@ -6,7 +6,8 @@ var labApp = angular.module('labApp', [
   'ui.bootstrap',
   'serviceLessons',
   'viewHome',
-  'viewTeach'
+  'viewTeach',
+  'sidebarMenu',
 
 ]);
 
