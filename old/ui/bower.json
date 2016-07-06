@@ -1,0 +1,23 @@
+{
+  "name": "interactive-tutorial",
+  "homepage": "https://github.com/lykovrs/interactive-tutorial",
+  "authors": [
+    "Roman Lykov <lykovrs@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^1.3.3",
+    "angular-ui-router": "^0.3.1",
+    "angular": "^1.5.6"
+  }
+}
