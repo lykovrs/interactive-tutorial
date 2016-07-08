@@ -8,6 +8,7 @@ var labApp = angular.module('labApp', [
   'viewHome',
   'viewTeach',
   'sidebarMenu',
+  'serviceRuntimeStates'
 
 ]);
 
