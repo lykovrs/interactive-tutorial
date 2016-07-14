@@ -1,5 +1,25 @@
-[
-  {
+{
+  "main": {
+    "title": "Главная страница",
+    "annotation": "Аннотация главной страницы",
+    "url": "main",
+    "body": [
+      {
+        "p": "Данный ресурс представляет собой..."
+      },
+      {
+        "img": "http://hron.com.ua/wp-content/uploads/2013/07/chemistry.jpg",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "p": "Еще рыбный текст..."
+      }
+    ]
+
+  },
+
+  "vvedenie": {
     "title": "Введение",
     "annotation": "Аннотация",
     "url": "annotation",
@@ -55,7 +75,7 @@
       }
     ]
   },
-  {
+  "glava1": {
     "title": "Глава 1",
     "annotation": "Аннотация к первой главе",
     "url": "first-chapter",
@@ -111,7 +131,7 @@
       }
     ]
   },
-  {
+  "glava2": {
     "title": "Глава 2",
     "annotation": "Аннотация ко второй главе",
     "url": "second-chapter",
@@ -129,4 +149,4 @@
       }
     ]
   }
-]
+}

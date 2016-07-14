@@ -4,13 +4,21 @@
 var labApp = angular.module('labApp', [
   'ui.router',
   'ui.bootstrap',
-  'serviceLessons',
+
   'viewHome',
-  'viewTeach',
-  'sidebarMenu',
-  'serviceRuntimeStates'
+  'mainPage',
 
 ]);
+// var labApp = angular.module('labApp', [
+//   'ui.router',
+//   'ui.bootstrap',
+//   'serviceLessons',
+//   'viewHome',
+//   'viewTeach',
+//   'sidebarMenu',
+//   'serviceRuntimeStates'
+//
+// ]);
 
 labApp.config(function ($urlRouterProvider) {
 

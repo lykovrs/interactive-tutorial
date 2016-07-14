@@ -19,15 +19,7 @@
   <!-- MAIN CONTENT -->
   <div class="container">
     <!-- NAVIGATION -->
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <a class="navbar-brand"  ui-sref="home">Auto lab</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li ui-sref-active="active"><a ui-sref="teach">Учебник</a></li>
-        <li ui-sref-active="active"><a ui-sref="test">Тест</a></li>
-      </ul>
-    </nav>
+    <main-menu></main-menu>
 
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -47,12 +39,14 @@
   <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script src="app.js"></script>
-  <script src="services/lessons.js"></script>
-  <script src="services/runtimeStates.js"></script>
   <script src="views/home/home.js"></script>
-  <script src="views/teach/teach.js"></script>
-  <script src="components/teach/TeachComponent.js"></script>
-  <script src="components/sidebarMenu/sidebarMenuComponent.js"></script>
+  <script src="components/mainPage/MainPageComponent.js"></script>
+  <script src="components/mainMenu/MainMenuComponent.js"></script>
+  <!--<script src="services/lessons.js"></script>-->
+  <!--<script src="services/runtimeStates.js"></script>-->
+  <!--<script src="views/teach/teach.js"></script>-->
+  <!--<script src="components/teach/TeachComponent.js"></script>-->
+  <!--<script src="components/sidebarMenu/sidebarMenuComponent.js"></script>-->
   <!--<script src="view2/view2.js"></script>-->
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>

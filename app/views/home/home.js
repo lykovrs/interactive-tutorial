@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('viewHome', ['ui.router']);
+angular.module('viewHome', ['ui.router' , 'mainPage']);
 
 labApp.config(function ($stateProvider) {
   $stateProvider.state('home', {
         url: '/home',
-        templateUrl: 'views/home/home.html'
+        template: '<main-page></main-page>'
       })
 });
