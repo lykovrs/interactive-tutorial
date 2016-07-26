@@ -1,21 +1,13 @@
 // Компонент страницы обчения
-angular.module('viewTeach', []);
+angular.module('viewTeach', ['serviceLessons', 'sidebarMenu']);
 labApp.component('teach', {
     templateUrl: 'components/teach/teach.html',
-    bindings: {
-        lesson: '='
-    },
-    controller: function () {
-        this.lesson = serviceLessons.getLessons();
-        if(this.lesson) {
-            console.log(this.lesson)
-        } else {
-            console.log('not lesson')
-        }
-        // console.log(this.lesson)
-        //     this.title =  this.lesson.title  || 'testTitle';
-            // this.lesson = lesson;
 
+    controller: function ($state, serviceLessons) {
+        this.lesson = serviceLessons.getLesson($state.current.name);
+       // console.log($state.current);
 
+        this.lessons = serviceLessons.getAllLessons();
+        // console.log(this.lessons);
     }
 });

@@ -1,5 +1,5 @@
-{
-  "main": {
+[
+  {
     "title": "Главная страница",
     "annotation": "Аннотация главной страницы",
     "url": "main",
@@ -19,7 +19,7 @@
 
   },
 
-  "vvedenie": {
+  {
     "title": "Введение",
     "annotation": "Аннотация",
     "url": "annotation",
@@ -75,7 +75,7 @@
       }
     ]
   },
-  "glava1": {
+  {
     "title": "Глава 1",
     "annotation": "Аннотация к первой главе",
     "url": "first-chapter",
@@ -131,7 +131,7 @@
       }
     ]
   },
-  "glava2": {
+  {
     "title": "Глава 2",
     "annotation": "Аннотация ко второй главе",
     "url": "second-chapter",
@@ -149,4 +149,4 @@
       }
     ]
   }
-}
+]

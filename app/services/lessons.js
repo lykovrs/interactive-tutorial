@@ -1,31 +1,39 @@
 // Сервис процесса обучения
 angular.module('serviceLessons', ['serviceRuntimeStates']);
-labApp.service('serviceLessons', function ($http, serviceRuntimeStates) {
+labApp.service('serviceLessons', function ($http, serviceRuntimeStates ) {
+    let bunchKeys = {};
+    this.lessons = null;
+    this.getStateLessons = () => {
+        if(!this.lessons){
+            this.lessons = $http.get('data/pages.json').then(response => {
+                // Получаем данные из файла
+                this.lessons = response.data;
+                console.log("get lessons data");
 
-    this.lessons = $http.get('data/pages.json').then(response => {
-        // Получаем данные из файла
-        this.lessons = response.data;
-        console.log("get lessons data");
+                // Динамически формируем состояния роутера и пробрасываем данные и вотчим состояние обекта
 
+                angular.forEach(this.lessons, function(lesson, lessonKey) {
+                    console.log(lessonKey + ': ' + lesson.url);
+                    bunchKeys[lesson.url] = lessonKey;
 
-        // Динамически формируем состояния роутера и пробрасываем данные и вотчим состояние обекта
-        angular.forEach(this.lessons, function(lesson, lessonKey) {
-            // console.log(lessonKey + ': ' + lesson.url);
-            
-
-            serviceRuntimeStates.addState(lesson.url,{
-                url: `/${lesson.url}`,
-                template: `<teach lesson="${lessonKey}"></teach>`
+                    serviceRuntimeStates.addState(lesson.url,{
+                        url: `/${lesson.url}`,
+                        template: `<teach></teach>`
+                    });
+                });
+                console.log('add states of lessons');
             });
-        });
+        }
 
-        return response.data;
-    });
+    };
 
+    this.getLesson = (key) => {
+        console.log(bunchKeys)
+        return this.lessons[bunchKeys[key]];
+    };
 
-
-    this.getLessons = (key) => {
-        return this.result[key];
+    this.getAllLessons = () => {
+        return this.lessons;
     };
 
 });

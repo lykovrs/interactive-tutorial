@@ -1,11 +1,15 @@
 // Компонент страницы обчения
-angular.module('mainPage', []);
+angular.module('mainPage', ['serviceLessons']);
 labApp.component('mainPage', {
     templateUrl: 'components/mainPage/mainPage.html',
     bindings: {
        
     },
-    controller: function () {
+    controller: function (serviceLessons) {
+        console.log('main page load');
+
+        serviceLessons.getStateLessons();
+
         // this.lesson = serviceLessons.getLessons();
         // if(this.lesson) {
         //     console.log(this.lesson)

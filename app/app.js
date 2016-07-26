@@ -4,9 +4,12 @@
 var labApp = angular.module('labApp', [
   'ui.router',
   'ui.bootstrap',
-
   'viewHome',
   'mainPage',
+  'serviceLessons',
+  'sidebarMenu',
+  'viewTeach'
+
 
 ]);
 // var labApp = angular.module('labApp', [
