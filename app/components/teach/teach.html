@@ -3,13 +3,17 @@
         <sidebar-menu items="$ctrl.lessons"></sidebar-menu>
     </div>
     <div class="col-md-8">
-        <h1>Содержание курса</h1>
-        Title: {{$ctrl.title}}
+        <h1>{{$ctrl.lesson.title}}</h1>
+        <h3>{{$ctrl.lesson.annotation}}</h3>
 
-        <div>
-            Ctrl : {{$ctrl.lesson}}
+        <div ng-repeat="element in $ctrl.lesson.body">
+            <p ng-if="element.p">{{element.p}}</p>
+
+            <img ng-if="element.img"
+                 ng-src="{{element.img}}"
+                 width="{{element.width}}"
+                 height="{{element.height}}" />
         </div>
-
     </div>
 
 </div>

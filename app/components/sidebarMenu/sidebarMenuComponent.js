@@ -15,5 +15,9 @@ labApp.component("sidebarMenu", {
                 return $state.current.name;
             };
 
+            this.goToRoat = (url) => {
+                event.preventDefault();
+                $state.go(url);
+            }
         }
 });
