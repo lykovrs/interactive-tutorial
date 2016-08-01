@@ -1,297 +1,179 @@
-# angular-seed — the seed for AngularJS apps
+<p align="center">
+  <a href="http://courses.angularclass.com/courses/angular-2-fundamentals" target="_blank">
+    <img width="438" alt="Angular 2 Fundamentals" src="https://cloud.githubusercontent.com/assets/1016365/17200649/085798c6-543c-11e6-8ad0-2484f0641624.png">
+  </a>
+</p>
 
-This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
-You can use it to quickly bootstrap your angular webapp projects and dev environment for these
-projects.
+---
 
-The seed contains a sample AngularJS application and is preconfigured to install the Angular
-framework and a bunch of development and testing tools for instant web development gratification.
+<p align="center">
+  <a href="https://angularclass.com" target="_blank">
+    <img src="https://cloud.githubusercontent.com/assets/1016365/9864650/93a5660a-5b00-11e5-8716-a0d538d12913.png" alt="ng6-starter" width="480px;" >
+  </a>
+  <!-- old img url: http://res.cloudinary.com/angularclass/image/upload/v1431802814/ng6_vrmd60.png -->
+</p>
 
-The seed app doesn't do much, just shows how to wire two controllers and views together.
+# NG6 [![Join Slack](https://img.shields.io/badge/slack-join-brightgreen.svg)](https://angularclass.com/slack-join) [![Join the chat at https://gitter.im/angularclass/NG6-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angularclass/NG6-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+> The de facto starter repo for building scalable apps with [Angular](https://angularjs.org), [ES6](https://git.io/es6features), and [Webpack](http://webpack.github.io/)
 
-## Getting Started
+This repo serves as a minimal starter for those looking to get up-and-running with Angular and ES6, using [Gulp](http://gulpjs.com/) and [Webpack](http://webpack.github.io/) for the build process.
+**This seed is not a Yeoman generator.** It's a minimal starter with tasks for building the boilerplate. **These are its features**:
+* The best practice in directory/file organization for Angular (allowing for infinite horizontal app scaling)
+* A ready-to-go build system for working with [ES6](https://git.io/es6features)
+* Tasks for generating additional boilerplate Angular components
+* A full testing system in place
+* [Stylus](https://learnboost.github.io/stylus/) support
 
-To get you started you can simply clone the angular-seed repository and install the dependencies:
+**Check out the [JSPM version](https://github.com/angularclass/NG6-starter/tree/jspm)--an alternative to Webpack as an ES6 build system.**
 
-### Prerequisites
+> If you're looking for a preliminary [Angular 2](https://angular.io/) build, please use the [angular2-webpack-starter](https://github.com/angularclass/angular2-webpack-starter).
+___
 
-You need git to clone the angular-seed repository. You can get git from
-[http://git-scm.com/](http://git-scm.com/).
+# Table of Contents
+* [Walkthrough](#walkthrough)
+    * [Build System](#build-system)
+    * [File Structure](#file-structure)
+    * [Testing Setup](#testing-setup)
+* [Getting Started](#getting-started)
+    * [Dependencies](#dependencies)
+    * [Installing](#installing)
+    * [Running the App](#running-the-app)
+        * [Gulp Tasks](#gulp-tasks)
+        * [Testing](#testing)
+		* [Generating Components](#generating-components)		
+* [Starter Kit Support and Questions](#starter-kit-support-and-questions)
 
-We also use a number of node.js tools to initialize and test angular-seed. You must have node.js and
-its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
+# Walkthrough
+## Build System
+NG6 uses Gulp and Webpack together for its build system. Yes, you don't need Gulp if you're using Webpack. This is true if your build system is only responsible for file manipulation. However, ours is not.
 
-### Clone angular-seed
+`Webpack` handles all file-related concerns:
+* Transpiling from ES6 to ES5 with `Babel`
+* Loading HTML files as modules
+* Transpiling stylesheets and appending them to the DOM
+* Refreshing the browser and rebuilding on file changes
+* Hot module replacement for transpiled stylesheets
+* Bundling the app
+* Loading all modules
+* Doing all of the above for `*.spec.js` files as well
 
-Clone the angular-seed repository using [git][git]:
+`Gulp` is the orchestrator:
+* Starting and calling Webpack
+* Starting a development server (yes, Webpack can do this too)
+* Generating boilerplate for the Angular app
 
+**Check out the [JSPM version](https://github.com/angularclass/NG6-starter/tree/jspm)--an alternative to Webpack as an ES6 build system.**
+
+## File Structure
+We use a componentized approach with NG6. This will be the eventual standard (and particularly helpful, if using Angular's new router) as well as a great way to ensure a tasteful transition to Angular 2, when the time is ripe. Everything--or mostly everything, as we'll explore (below)--is a component. A component is a self-contained concern--may it be a feature or strictly-defined, ever-present element of the UI (such as a header, sidebar, or footer). Also characteristic of a component is that it harnesses its own stylesheets, templates, controllers, routes, services, and specs. This encapsulation allows us the comfort of isolation and structural locality. Here's how it looks:
 ```
-git clone https://github.com/angular/angular-seed.git
-cd angular-seed
-```
-
-If you just want to start a new project without the angular-seed commit history then you can do:
-
-```bash
-git clone --depth=1 https://github.com/angular/angular-seed.git <your-project-name>
-```
-
-The `depth=1` tells git to only pull down one commit worth of historical data.
-
-### Install Dependencies
-
-We have two kinds of dependencies in this project: tools and angular framework code.  The tools help
-us manage and test the application.
-
-* We get the tools we depend upon via `npm`, the [node package manager][npm].
-* We get the angular code via `bower`, a [client-side code package manager][bower].
-
-We have preconfigured `npm` to automatically run `bower` so we can simply do:
-
-```
-npm install
-```
-
-Behind the scenes this will also call `bower install`.  You should find that you have two new
-folders in your project.
-
-* `node_modules` - contains the npm packages for the tools we need
-* `app/bower_components` - contains the angular framework files
-
-*Note that the `bower_components` folder would normally be installed in the root folder but
-angular-seed changes this location through the `.bowerrc` file.  Putting it in the app folder makes
-it easier to serve the files by a webserver.*
-
-### Run the Application
-
-We have preconfigured the project with a simple development web server.  The simplest way to start
-this server is:
-
-```
-npm start
-```
-
-Now browse to the app at `http://localhost:8000/index.html`.
-
-
-
-## Directory Layout
-
-```
-app/                    --> all of the source files for the application
-  app.css               --> default stylesheet
-  components/           --> all app specific modules
-    version/              --> version related components
-      version.js                 --> version module declaration and basic "version" value service
-      version_test.js            --> "version" value service tests
-      version-directive.js       --> custom directive that returns the current app version
-      version-directive_test.js  --> version directive tests
-      interpolate-filter.js      --> custom interpolation filter
-      interpolate-filter_test.js --> interpolate filter tests
-  view1/                --> the view1 view template and logic
-    view1.html            --> the partial template
-    view1.js              --> the controller logic
-    view1_test.js         --> tests of the controller
-  view2/                --> the view2 view template and logic
-    view2.html            --> the partial template
-    view2.js              --> the controller logic
-    view2_test.js         --> tests of the controller
-  app.js                --> main application module
-  index.html            --> app layout file (the main html template file of the app)
-  index-async.html      --> just like index.html, but loads js files asynchronously
-karma.conf.js         --> config file for running unit tests with Karma
-e2e-tests/            --> end-to-end tests
-  protractor-conf.js    --> Protractor config file
-  scenarios.js          --> end-to-end scenarios to be run by Protractor
+client
+⋅⋅app/
+⋅⋅⋅⋅app.js * app entry file
+⋅⋅⋅⋅app.html * app template
+⋅⋅⋅⋅common/ * functionality pertinent to several components propagate into this directory
+⋅⋅⋅⋅components/ * where components live
+⋅⋅⋅⋅⋅⋅components.js * components entry file
+⋅⋅⋅⋅⋅⋅home/ * home component
+⋅⋅⋅⋅⋅⋅⋅⋅home.js * home entry file (routes, configurations, and declarations occur here)
+⋅⋅⋅⋅⋅⋅⋅⋅home.component.js * home "directive"
+⋅⋅⋅⋅⋅⋅⋅⋅home.controller.js * home controller
+⋅⋅⋅⋅⋅⋅⋅⋅home.styl * home styles
+⋅⋅⋅⋅⋅⋅⋅⋅home.html * home template
+⋅⋅⋅⋅⋅⋅⋅⋅home.spec.js * home specs (for entry, component, and controller)
 ```
 
-## Testing
+## Testing Setup
+All tests are also written in ES6. We use Webpack to take care of the logistics of getting those files to run in the various browsers, just like with our client files. This is our testing stack:
+* Karma
+* Webpack + Babel
+* Mocha
+* Chai
 
-There are two kinds of tests in the angular-seed application: Unit tests and end-to-end tests.
+To run tests, type `npm test` or `karma start` in the terminal. Read more about testing [below](#testing).
 
-### Running Unit Tests
+# Getting Started
+## Dependencies
+Tools needed to run this app:
+* `node` and `npm`
+Once you have these, install the following as globals:  
+`npm install -g gulp karma karma-cli webpack`
 
-The angular-seed app comes preconfigured with unit tests. These are written in
-[Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma
-configuration file to run them.
+## Installing
+* `fork` this repo
+* `clone` your fork
+* `npm install -g gulp karma karma-cli webpack` install global cli dependencies
+* `npm install` to install dependencies
 
-* the configuration is found at `karma.conf.js`
-* the unit tests are found next to the code they are testing and are named as `..._test.js`.
+## Running the App
+NG6 uses Gulp to build and launch the development environment. After you have installed all dependencies, you may run the app. Running `gulp` will bundle the app with `webpack`, launch a development server, and watch all files. The port will be displayed in the terminal.
+ 
+### Gulp Tasks
+Here's a list of available tasks:
+* `webpack`
+  * runs Webpack, which will transpile, concatenate, and compress (collectively, "bundle") all assets and modules into `dist/bundle.js`. It also prepares `index.html` to be used as application entry point, links assets and created dist version of our application.
+* `serve`
+  * starts a dev server via `webpack-dev-server`, serving the client folder.
+* `watch`
+  * alias of `serve`
+* `default` (which is the default task that runs when typing `gulp` without providing an argument)
+	* runs `serve`.
+* `component`
+  * scaffolds a new Angular component. [Read below](#generating-components) for usage details.
+  
+### Testing
+To run the tests, run `npm test` or `karma start`.
 
-The easiest way to run the unit tests is to use the supplied npm script:
+`Karma` combined with Webpack runs all files matching `*.spec.js` inside the `app` folder. This allows us to keep test files local to the component--which keeps us in good faith with continuing to build our app modularly. The file `spec.bundle.js` is the bundle file for **all** our spec files that Karma will run.
 
+Be sure to define your `*.spec.js` files within their corresponding component directory. You must name the spec file like so, `[name].spec.js`. If you don't want to use the `.spec.js` suffix, you must change the `regex` in `spec.bundle.js` to look for whatever file(s) you want.
+`Mocha` is the testing suite and `Chai` is the assertion library. If you would like to change this, see `karma.conf.js`.
+
+### Examples
+
+It's always easier to learn something if you have an examples. Here is a list of repos which based on this starter:
+
+ - [TodoMVC Example App](https://github.com/AngularClass/NG6-todomvc-starter)
+
+### Generating Components
+Following a consistent directory structure between components offers us the certainty of predictability. We can take advantage of this certainty by creating a gulp task to automate the "instantiation" of our components. The component boilerplate task generates this:
 ```
-npm test
-```
-
-This script will start the Karma test runner to execute the unit tests. Moreover, Karma will sit and
-watch the source and test files for changes and then re-run the tests whenever any of them change.
-This is the recommended strategy; if your unit tests are being run every time you save a file then
-you receive instant feedback on any changes that break the expected code functionality.
-
-You can also ask Karma to do a single run of the tests and then exit.  This is useful if you want to
-check that a particular version of the code is operating as expected.  The project contains a
-predefined script to do this:
-
-```
-npm run test-single-run
-```
-
-
-### End to end testing
-
-The angular-seed app comes with end-to-end tests, again written in [Jasmine][jasmine]. These tests
-are run with the [Protractor][protractor] End-to-End test runner.  It uses native events and has
-special features for Angular applications.
-
-* the configuration is found at `e2e-tests/protractor-conf.js`
-* the end-to-end tests are found in `e2e-tests/scenarios.js`
-
-Protractor simulates interaction with our web app and verifies that the application responds
-correctly. Therefore, our web server needs to be serving up the application, so that Protractor
-can interact with it.
-
-```
-npm start
-```
-
-In addition, since Protractor is built upon WebDriver we need to install this.  The angular-seed
-project comes with a predefined script to do this:
-
-```
-npm run update-webdriver
-```
-
-This will download and install the latest version of the stand-alone WebDriver tool.
-
-Once you have ensured that the development web server hosting our application is up and running
-and WebDriver is updated, you can run the end-to-end tests using the supplied npm script:
-
-```
-npm run protractor
+⋅⋅⋅⋅⋅⋅componentName/
+⋅⋅⋅⋅⋅⋅⋅⋅componentName.js // entry file where all its dependencies load
+⋅⋅⋅⋅⋅⋅⋅⋅componentName.component.js
+⋅⋅⋅⋅⋅⋅⋅⋅componentName.controller.js
+⋅⋅⋅⋅⋅⋅⋅⋅componentName.html
+⋅⋅⋅⋅⋅⋅⋅⋅componentName.styl // scoped to affect only its own template
+⋅⋅⋅⋅⋅⋅⋅⋅componentName.spec.js // contains passing demonstration tests
 ```
 
-This script will execute the end-to-end tests against the application being hosted on the
-development server.
+You may, of course, create these files manually, every time a new module is needed, but that gets quickly tedious.
+To generate a component, run `gulp component --name componentName`.
 
+The parameter following the `--name` flag is the name of the component to be created. Ensure that it is unique or it will overwrite the preexisting identically-named component.
 
-## Updating Angular
+The component will be created, by default, inside `client/app/components`. To change this, apply the `--parent` flag, followed by a path relative to `client/app/components/`.
 
-Previously we recommended that you merge in changes to angular-seed into your own fork of the project.
-Now that the angular framework library code and tools are acquired through package managers (npm and
-bower) you can use these tools instead to update the dependencies.
+For example, running `gulp component --name signup --parent auth` will create a `signup` component at `client/app/components/auth/signup`.  
 
-You can update the tool dependencies by running:
+Running `gulp component --name footer --parent ../common` creates a `footer` component at `client/app/common/footer`.  
 
-```
-npm update
-```
+Because the argument to `--name` applies to the folder name **and** the actual component name, make sure to camelcase the component names.
 
-This will find the latest versions that match the version ranges specified in the `package.json` file.
+# Starter Kit Support and Questions
+> Contact us, anytime, regarding anything about this project.
 
-You can update the Angular dependencies by running:
+* [Gitter: angularclass/NG6-starter](https://gitter.im/angularclass/NG6-starter)
+* [Twitter: @AngularClass](https://twitter.com/AngularClass)
 
-```
-bower update
-```
+___
 
-This will find the latest versions that match the version ranges specified in the `bower.json` file.
+enjoy — **AngularClass** 
 
+<br><br>
 
-## Loading Angular Asynchronously
-
-The angular-seed project supports loading the framework and application scripts asynchronously.  The
-special `index-async.html` is designed to support this style of loading.  For it to work you must
-inject a piece of Angular JavaScript into the HTML page.  The project has a predefined script to help
-do this.
-
-```
-npm run update-index-async
-```
-
-This will copy the contents of the `angular-loader.js` library file into the `index-async.html` page.
-You can run this every time you update the version of Angular that you are using.
-
-
-## Serving the Application Files
-
-While angular is client-side-only technology and it's possible to create angular webapps that
-don't require a backend server at all, we recommend serving the project files using a local
-webserver during development to avoid issues with security restrictions (sandbox) in browsers. The
-sandbox implementation varies between browsers, but quite often prevents things like cookies, xhr,
-etc to function properly when an html page is opened via `file://` scheme instead of `http://`.
-
-
-### Running the App during Development
-
-The angular-seed project comes preconfigured with a local development webserver.  It is a node.js
-tool called [http-server][http-server].  You can start this webserver with `npm start` but you may choose to
-install the tool globally:
-
-```
-sudo npm install -g http-server
-```
-
-Then you can start your own development web server to serve static files from a folder by
-running:
-
-```
-http-server -a localhost -p 8000
-```
-
-Alternatively, you can choose to configure your own webserver, such as apache or nginx. Just
-configure your server to serve the files under the `app/` directory.
-
-
-### Running the App in Production
-
-This really depends on how complex your app is and the overall infrastructure of your system, but
-the general rule is that all you need in production are all the files under the `app/` directory.
-Everything else should be omitted.
-
-Angular apps are really just a bunch of static html, css and js files that just need to be hosted
-somewhere they can be accessed by browsers.
-
-If your Angular app is talking to the backend server via xhr or other means, you need to figure
-out what is the best way to host the static files to comply with the same origin policy if
-applicable. Usually this is done by hosting the files by the backend server or through
-reverse-proxying the backend server(s) and webserver(s).
-
-
-## Continuous Integration
-
-### Travis CI
-
-[Travis CI][travis] is a continuous integration service, which can monitor GitHub for new commits
-to your repository and execute scripts such as building the app or running tests. The angular-seed
-project contains a Travis configuration file, `.travis.yml`, which will cause Travis to run your
-tests when you push to GitHub.
-
-You will need to enable the integration between Travis and GitHub. See the Travis website for more
-instruction on how to do this.
-
-### CloudBees
-
-CloudBees have provided a CI/deployment setup:
-
-<a href="https://grandcentral.cloudbees.com/?CB_clickstart=https://raw.github.com/CloudBees-community/angular-js-clickstart/master/clickstart.json">
-<img src="https://d3ko533tu1ozfq.cloudfront.net/clickstart/deployInstantly.png"/></a>
-
-If you run this, you will get a cloned version of this repo to start working on in a private git repo,
-along with a CI service (in Jenkins) hosted that will run unit and end to end tests in both Firefox and Chrome.
-
-
-## Contact
-
-For more information on AngularJS please check out http://angularjs.org/
-
-[git]: http://git-scm.com/
-[bower]: http://bower.io
-[npm]: https://www.npmjs.org/
-[node]: http://nodejs.org
-[protractor]: https://github.com/angular/protractor
-[jasmine]: http://jasmine.github.io
-[karma]: http://karma-runner.github.io
-[travis]: https://travis-ci.org/
-[http-server]: https://github.com/nodeapps/http-server
+[![AngularClass](https://cloud.githubusercontent.com/assets/1016365/9863770/cb0620fc-5af7-11e5-89df-d4b0b2cdfc43.png  "Angular Class")](https://angularclass.com)
+##[AngularClass](https://angularclass.com)
+> Learn AngularJS, Angular 2, and Modern Web Development from the best.
+> Looking for corporate Angular training, want to host us, or Angular consulting? hello@angularclass.com
