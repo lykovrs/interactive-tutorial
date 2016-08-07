@@ -1,8 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import angularAnimate from 'angular-animate';
-import angularAria from 'angular-aria';
-import angularMaterial from 'angular-material';
+import 'angular-animate';
+import 'angular-aria';
+import 'angular-material';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
@@ -10,6 +10,7 @@ import 'normalize.css';
 
 angular.module('app', [
     uiRouter,
+    'ngMaterial',
     Common,
     Components
   ])

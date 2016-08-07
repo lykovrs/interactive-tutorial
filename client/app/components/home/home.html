@@ -1,9 +1,43 @@
-<navbar></navbar>
-<header>
-  <hero></hero>
-</header>
-<main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
+<div layout="column">
+
+  <!-- Container #1 (see wireframe) -->
+  <md-toolbar layout="row" class="md-toolbar-tools">
+    <navbar></navbar>
+
+    <span flex></span>
+    <md-button>
+      Right Bar Button
+    </md-button>
+
+  </md-toolbar>
+
+  <!-- Container #2 -->
+  <div flex layout="row">
+
+    <!-- Container #3 -->
+    <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+      Sidenav
+    </md-sidenav>
+
+    <!-- Container #4 -->
+    <md-content flex id="content">
+      <h1>Found in {{ $ctrl.name }}.html</h1>
+
+
+      <!--<header>-->
+        <!--<hero></hero>-->
+      <!--</header>-->
+      <!--<main>-->
+        <!--<div>-->
+          <!--<h1>Found in {{ $ctrl.name }}.html</h1>-->
+        <!--</div>-->
+      <!--</main>-->
+
+
+
+
+    </md-content>
+
   </div>
-</main>
+
+</div>
