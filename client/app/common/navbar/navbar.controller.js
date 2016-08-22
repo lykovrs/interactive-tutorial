@@ -1,9 +1,7 @@
 class NavbarController {
   constructor() {
     this.name = 'navbar';
-
-      this.currentLink = 'home'
-
+    this.currentLink = 'home'
   }
 }
 
