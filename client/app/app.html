@@ -1,4 +1,33 @@
 <!-- Place all UI elements intended to be present across all routes in this file -->
 <div class="app">
-  <div ui-view></div>
+
+  <div layout="column">
+
+    <!-- Container #1 (see wireframe) -->
+    <md-toolbar layout="row" class="md-toolbar-tools">
+      <navbar></navbar>
+
+      <span flex></span>
+      <md-button>
+        Right Bar Button
+      </md-button>
+
+    </md-toolbar>
+
+    <!-- Container #2 -->
+    <div flex layout="row">
+
+      <!-- Container #3 -->
+      <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+        Sidenav
+      </md-sidenav>
+
+      <div ui-view></div>
+
+    </div>
+
+  </div>
+
+
+
 </div>
