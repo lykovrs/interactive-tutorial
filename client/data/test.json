@@ -1,0 +1,56 @@
+[
+  {
+    "text": "Лучший друг человека",
+    "type": "radio",
+    "model": "Собака",
+    "rightAnswer": "Собака",
+    "answers": [
+      "Собака",
+      "Кошка",
+      "Лошадка"
+    ]
+  },
+  {
+    "text": "Синонимы слова 'Хороший'",
+    "type": "checkbox",
+    "answers": [
+      {
+        "text": "Прекрасный",
+        "type": true,
+        "model": false
+      },
+      {
+        "text": "Отличный",
+        "type": true,
+        "model": false
+      },
+      {
+        "text": "Плохой",
+        "type": false,
+        "model": false
+      }
+    ]
+  },
+  {
+    "text": "Быстрый способ похудеть",
+    "type": "checkbox",
+    "answers": [
+      {
+        "text": "Есть после 6",
+        "type": false,
+        "model": false
+      },
+      {
+        "text": "Заниматься спортом",
+        "type": true,
+        "model": false
+      },
+      {
+        "text": "Жрать по-меньше",
+        "type": true,
+        "model": false
+      }
+    ]
+  }
+
+]
